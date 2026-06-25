@@ -47,7 +47,7 @@ If you have Node.js installed, the easiest way is to use the `skills` CLI. It wi
 npx skills add SimulAffect/learn-any-topic-skill
 ```
 
-To update a skill installed with the `skills` CLI, run:
+To update later, run:
 
 ```bash
 npx skills update learn-any-topic
@@ -62,13 +62,7 @@ git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git
 cp -R learn-any-topic-skill/skills/learn-any-topic <your-skills-dir>/
 ```
 
-To update the skill later, run:
-
-```bash
-cd learn-any-topic-skill
-git pull
-cp -R skills/learn-any-topic <your-skills-dir>/
-```
+To update the skill later, simply delete `<your-skills-dir>/learn-any-topic` and repeat the installation steps above.
 
 ### 3. Codex Installation
 
@@ -167,7 +161,7 @@ This skill is released as open source. See LICENSE for details.
 npx skills add SimulAffect/learn-any-topic-skill
 ```
 
-如果你是用 `skills` 命令行工具安装的，后续可以运行：
+后续更新请运行：
 
 ```bash
 npx skills update learn-any-topic
@@ -182,13 +176,7 @@ git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git
 cp -R learn-any-topic-skill/skills/learn-any-topic <your-skills-dir>/
 ```
 
-如果后续需要更新，可以运行：
-
-```bash
-cd learn-any-topic-skill
-git pull
-cp -R skills/learn-any-topic <your-skills-dir>/
-```
+如果后续需要更新，只需删除你安装目录下的 `learn-any-topic` 文件夹，然后重新执行上面的安装命令即可。
 
 ### 3. Codex 平台
 
