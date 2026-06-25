@@ -5,7 +5,7 @@ An advanced AI agent skill designed to help you learn and master any common topi
 Unlike typical one-off AI explanations that often lack depth or structure, this skill uses a highly structured, loop-based approach to prepare comprehensive, publication-grade learning materials for you. It guides the AI agent through a rigorous 7-step cycle—from framing the learning objectives and mapping authoritative sources to designing knowledge structures, drafting continuous explanations, generating formatted artifacts, and running automated programmatic quality checks.
 
 ### Key Highlights
-- **Multi-Platform Integration**: Native configurations tailored for Antigravity (Gemini), OpenAI Codex, Cursor, Windsurf, GitHub Copilot, and Claude Code.
+- **Multi-Platform Support**: Installs as a full Skill folder for Antigravity (Gemini), OpenAI Codex, Cursor, Windsurf, GitHub Copilot, and Claude Code.
 - **Authority-Backed Source Ladder**: Replaces generic search results with a strict 5-tier evaluation system prioritizing official standards, textbooks, and recognized reference materials.
 - **Coherent Scaffolding**: Moves beyond fragmented bullet points to deliver continuous explanations, clear mental models, progressive examples, and practical self-checks.
 - **Automated Quality Review**: Features an integrated Python linting script (`review_tutorial.py`) that scans drafts for placeholders, weak structures, and vague phrasing to ensure a high-fidelity final output.
@@ -22,101 +22,67 @@ When activated, the agent follows a structured 7-step workflow:
 6. **Generate the Artifact** — Output as Markdown, Word, PDF, or other requested format
 7. **Review, Find Gaps, Revise** — Run quality checks on coverage, sources, terminology, coherence
 
+## Supported Platforms
+
+Install this repository as a full Skill folder. The final directory should contain `SKILL.md`, `scripts/`, and `references/`.
+
+| Platform / Tool | Project Skill location |
+| :--- | :--- |
+| **Antigravity (Gemini)** | `.agents/skills/learn-any-topic/SKILL.md` |
+| **OpenAI Codex** | `.agents/skills/learn-any-topic/SKILL.md` |
+| **Cursor** | `.cursor/skills/learn-any-topic/SKILL.md` |
+| **Windsurf (Codeium)** | `.windsurf/skills/learn-any-topic/SKILL.md` |
+| **GitHub Copilot** | `.github/skills/learn-any-topic/SKILL.md` |
+| **Claude Code** | `.claude/skills/learn-any-topic/SKILL.md` |
+
 ## Installation
 
-Run the command corresponding to your platform inside your project's root directory:
+There are two ways to install this skill: using the automated CLI or downloading it manually.
 
-### For Single-File Rule IDEs (Cursor, Windsurf, Copilot, Claude Code)
-These platforms only require a single rule file. We provide direct download commands using standard `curl` (macOS/Linux/Git Bash) and native PowerShell (Windows).
+### 1. Automated Installation (Recommended)
 
-- **Cursor (.mdc)**
-  - *macOS / Linux / Git Bash:*
-    ```bash
-    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/cursor/learn-any-topic.mdc -o .cursor/rules/learn-any-topic.mdc
-    ```
-  - *Windows (PowerShell):*
-    ```powershell
-    New-Item -ItemType Directory -Force -Path .cursor/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/cursor/learn-any-topic.mdc" -OutFile ".cursor/rules/learn-any-topic.mdc"
-    ```
+If you have Node.js installed, the easiest way is to use the `skills` CLI. It will automatically detect which AI tool you are using (like Cursor, Windsurf, or Claude Code) and place the skill files in the correct directory for you.
 
-- **Windsurf (.md)**
-  - *macOS / Linux / Git Bash:*
-    ```bash
-    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/windsurf/learn-any-topic.md -o .windsurf/rules/learn-any-topic.md
-    ```
-  - *Windows (PowerShell):*
-    ```powershell
-    New-Item -ItemType Directory -Force -Path .windsurf/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/windsurf/learn-any-topic.md" -OutFile ".windsurf/rules/learn-any-topic.md"
-    ```
+```bash
+npx skills add SimulAffect/learn-any-topic-skill
+```
 
-- **GitHub Copilot (.instructions.md)**
-  - *macOS / Linux / Git Bash:*
-    ```bash
-    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/copilot/learn-any-topic.instructions.md -o .github/instructions/learn-any-topic.instructions.md
-    ```
-  - *Windows (PowerShell):*
-    ```powershell
-    New-Item -ItemType Directory -Force -Path .github/instructions; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/copilot/learn-any-topic.instructions.md" -OutFile ".github/instructions/learn-any-topic.instructions.md"
-    ```
+### 2. Manual Installation (`git clone`)
 
-- **Claude Code (.md)**
-  - *macOS / Linux / Git Bash:*
-    ```bash
-    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/claude/learn-any-topic.md -o .claude/rules/learn-any-topic.md
-    ```
-  - *Windows (PowerShell):*
-    ```powershell
-    New-Item -ItemType Directory -Force -Path .claude/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/claude/learn-any-topic.md" -OutFile ".claude/rules/learn-any-topic.md"
-    ```
+If you prefer to install it manually, you can clone this repository. You will need to know the specific folder where your AI tool expects Skill folders to be placed (replace `<your-skills-dir>` with that path):
 
-### For Full-Skill Platforms (Antigravity, OpenAI Codex)
-These platforms require the full folder structure. You can use either Git or npx degit:
+```bash
+git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git <your-skills-dir>/learn-any-topic
+```
 
-- **Method A: Git Clone (Universal, Recommended)**
-  Clones the repository and automatically cleans up the nested git history:
-  - *macOS / Linux / Git Bash:*
-    ```bash
-    git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git .agents/skills/learn-any-topic && rm -rf .agents/skills/learn-any-topic/.git
-    ```
-  - *Windows (PowerShell):*
-    ```powershell
-    git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git .agents/skills/learn-any-topic; Remove-Item -Recurse -Force .agents/skills/learn-any-topic/.git
-    ```
+To update the skill later, run:
 
-- **Method B: npx degit (For Node.js developers)**
-  ```bash
-  npx degit SimulAffect/learn-any-topic-skill .agents/skills/learn-any-topic
-  ```
+```bash
+cd <your-skills-dir>/learn-any-topic && git pull
+```
 
-*(Note: For OpenAI Codex, replace `.agents/skills/learn-any-topic` with `.codex/skills/learn-any-topic`)*
+### 3. Codex Installation
+
+If you are using OpenAI Codex, it has its own built-in installer. Run this command inside Codex:
+
+```text
+$skill-installer install https://github.com/SimulAffect/learn-any-topic-skill
+```
+
+After installing, please restart Codex so it can recognize the new skill.
 
 ## Directory Structure
 
 ```
 learn-any-topic/
-├── SKILL.md                    # Core skill (Antigravity/Codex format)
+├── SKILL.md                    # Core skill file
 ├── README.md                   # This file
 ├── scripts/
 │   └── review_tutorial.py      # Automated tutorial quality checker
-├── references/
-│   ├── source-quality.md       # Source evaluation guidelines
-│   └── tutorial-framework.md   # Chapter skeleton and depth controls
-└── platforms/
-    ├── README.md               # Platform comparison and install guide
-    ├── cursor/
-    │   └── learn-any-topic.mdc
-    ├── windsurf/
-    │   └── learn-any-topic.md
-    ├── copilot/
-    │   └── learn-any-topic.instructions.md
-    └── claude/
-        └── learn-any-topic.md
+└── references/
+    ├── source-quality.md       # Source evaluation guidelines
+    └── tutorial-framework.md   # Chapter skeleton and depth controls
 ```
-
-## Platform Differences
-
-- **Full skill support** (Antigravity, Codex): The agent can read `references/` files for deeper guidance and run `scripts/review_tutorial.py` for automated quality checks.
-- **Rules only** (Cursor, Windsurf, Copilot, Claude Code): The workflow instructions are embedded directly in the rule file. Script execution and reference file reading are not supported; the essential content from `references/` is inlined into these versions.
 
 ## review_tutorial.py
 
@@ -147,7 +113,7 @@ This skill is released as open source. See LICENSE for details.
 与常见的、往往缺乏深度或结构的一次性 AI 回答不同，本 Skill 采用了一种**结构化的闭环（Loop）方式**来为你准备高质量、系统化的学习资料。它引导 AI 助手遵循严格的 7 步循环工作流——从明确学习目标与受众、梳理权威来源地图，到设计知识地图与大纲、撰写连贯的教学内容、生成规范的交付文档，并最终通过自动化脚本进行针对性的质量审查与迭代优化，确保交付结果具有极高的完整性与实用价值。
 
 ### 核心亮点
-- **多平台深度集成**：原生适配 Antigravity (Gemini)、OpenAI Codex、Cursor、Windsurf、GitHub Copilot 以及 Claude Code，提供量身定制的配置与指令。
+- **多平台支持**：以完整 Skill 文件夹的方式安装到 Antigravity (Gemini)、OpenAI Codex、Cursor、Windsurf、GitHub Copilot 以及 Claude Code。
 - **权威来源分级**：告别泛泛的网络搜索，采用严格的 5 级来源评估机制，优先采用官方标准、学术教材和行业规范。
 - **渐进式连贯讲解**：杜绝碎片化的要点堆砌，以连贯的叙事逻辑、清晰的思想模型、渐进式的实例和实用的自测练习，构筑完整的认知闭环。
 - **自动化质量把控**：内置 Python 质量审查脚本（`review_tutorial.py`），智能检测占位符、否定性定义、空泛词汇及结构缺陷，以代码级别的严谨性保障教程品质。
@@ -164,101 +130,67 @@ This skill is released as open source. See LICENSE for details.
 6. **生成交付物** — 输出为 Markdown、Word、PDF 或其他指定格式
 7. **审查、查漏、修订** — 对覆盖度、来源质量、术语、连贯性进行质量检查
 
+## 支持的平台
+
+请把这个仓库作为完整 Skill 文件夹安装。最终目录里应同时包含 `SKILL.md`、`scripts/` 和 `references/`。
+
+| 平台 / 工具 | 项目级 Skill 位置 |
+| :--- | :--- |
+| **Antigravity (Gemini)** | `.agents/skills/learn-any-topic/SKILL.md` |
+| **OpenAI Codex** | `.agents/skills/learn-any-topic/SKILL.md` |
+| **Cursor** | `.cursor/skills/learn-any-topic/SKILL.md` |
+| **Windsurf (Codeium)** | `.windsurf/skills/learn-any-topic/SKILL.md` |
+| **GitHub Copilot** | `.github/skills/learn-any-topic/SKILL.md` |
+| **Claude Code** | `.claude/skills/learn-any-topic/SKILL.md` |
+
 ## 安装方式
 
-请在您项目的根目录下打开终端，并运行与您的平台相对应的命令：
+你可以选择使用自动化工具安装，或者手动克隆代码。
 
-### 针对单文件规则平台（Cursor, Windsurf, Copilot, Claude Code）
-这些平台仅需要一个规则文件。我们提供了使用标准 `curl`（Mac/Linux/Git Bash）和原生 PowerShell（Windows）的直连下载命令：
+### 1. 自动安装（推荐）
 
-- **Cursor (.mdc)**
-  - *macOS / Linux / Git Bash:*
-    ```bash
-    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/cursor/learn-any-topic.mdc -o .cursor/rules/learn-any-topic.mdc
-    ```
-  - *Windows (PowerShell):*
-    ```powershell
-    New-Item -ItemType Directory -Force -Path .cursor/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/cursor/learn-any-topic.mdc" -OutFile ".cursor/rules/learn-any-topic.mdc"
-    ```
+如果你安装了 Node.js，最简单的方法是使用 `skills` 命令行工具。它会自动识别你正在使用的 AI 编辑器（例如 Cursor、Windsurf 或 Claude Code），并将文件下载到正确的目录中，无需你手动指定路径。
 
-- **Windsurf (.md)**
-  - *macOS / Linux / Git Bash:*
-    ```bash
-    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/windsurf/learn-any-topic.md -o .windsurf/rules/learn-any-topic.md
-    ```
-  - *Windows (PowerShell):*
-    ```powershell
-    New-Item -ItemType Directory -Force -Path .windsurf/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/windsurf/learn-any-topic.md" -OutFile ".windsurf/rules/learn-any-topic.md"
-    ```
+```bash
+npx skills add SimulAffect/learn-any-topic-skill
+```
 
-- **GitHub Copilot (.instructions.md)**
-  - *macOS / Linux / Git Bash:*
-    ```bash
-    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/copilot/learn-any-topic.instructions.md -o .github/instructions/learn-any-topic.instructions.md
-    ```
-  - *Windows (PowerShell):*
-    ```powershell
-    New-Item -ItemType Directory -Force -Path .github/instructions; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/copilot/learn-any-topic.instructions.md" -OutFile ".github/instructions/learn-any-topic.instructions.md"
-    ```
+### 2. 手动安装（Git Clone）
 
-- **Claude Code (.md)**
-  - *macOS / Linux / Git Bash:*
-    ```bash
-    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/claude/learn-any-topic.md -o .claude/rules/learn-any-topic.md
-    ```
-  - *Windows (PowerShell):*
-    ```powershell
-    New-Item -ItemType Directory -Force -Path .claude/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/claude/learn-any-topic.md" -OutFile ".claude/rules/learn-any-topic.md"
-    ```
+如果你想手动安装，可以直接克隆这个仓库。你需要知道你的 AI 工具通常把 Skill 文件夹放在哪个目录（请将下方代码中的 `<your-skills-dir>` 替换为实际的路径）：
 
-### 针对完整 Skill 平台（Antigravity, OpenAI Codex）
-这些平台需要完整的文件夹结构。您可以使用 Git 浅克隆或 npx degit：
+```bash
+git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git <your-skills-dir>/learn-any-topic
+```
 
-- **方式一：Git 克隆（最通用，推荐）**
-  克隆仓库并自动删除嵌套的 git 历史记录：
-  - *macOS / Linux / Git Bash:*
-    ```bash
-    git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git .agents/skills/learn-any-topic && rm -rf .agents/skills/learn-any-topic/.git
-    ```
-  - *Windows (PowerShell):*
-    ```powershell
-    git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git .agents/skills/learn-any-topic; Remove-Item -Recurse -Force .agents/skills/learn-any-topic/.git
-    ```
+如果后续需要更新，可以运行：
 
-- **方式二：npx degit（适用于 Node.js 开发者）**
-  ```bash
-  npx degit SimulAffect/learn-any-topic-skill .agents/skills/learn-any-topic
-  ```
+```bash
+cd <your-skills-dir>/learn-any-topic && git pull
+```
 
-*(注：如果您使用的是 OpenAI Codex，请将目标路径修改为 `.codex/skills/learn-any-topic`)*
+### 3. Codex 平台
+
+如果你使用的是 OpenAI Codex，它内置了自己的安装命令。请在 Codex 中运行：
+
+```text
+$skill-installer install https://github.com/SimulAffect/learn-any-topic-skill
+```
+
+安装完成后，请重启 Codex 以使新 skill 生效。
 
 ## 目录结构
 
 ```
 learn-any-topic/
-├── SKILL.md                    # 核心 skill（Antigravity/Codex 格式）
+├── SKILL.md                    # 核心 skill 文件
 ├── README.md                   # 本文件
 ├── scripts/
 │   └── review_tutorial.py      # 自动化教程质量检查脚本
-├── references/
-│   ├── source-quality.md       # 来源评估指南
-│   └── tutorial-framework.md   # 章节骨架与深度控制
-└── platforms/
-    ├── README.md               # 平台对比与安装指引
-    ├── cursor/
-    │   └── learn-any-topic.mdc
-    ├── windsurf/
-    │   └── learn-any-topic.md
-    ├── copilot/
-    │   └── learn-any-topic.instructions.md
-    └── claude/
-        └── learn-any-topic.md
+└── references/
+    ├── source-quality.md       # 来源评估指南
+    └── tutorial-framework.md   # 章节骨架与深度控制
 ```
-
-## 平台差异
-
-- **完整 skill 支持**（Antigravity、Codex）：AI 助手可以读取 `references/` 下的参考文档以获得更深入的指导，并运行 `scripts/review_tutorial.py` 进行自动化质量检查。
-- **仅规则文件**（Cursor、Windsurf、Copilot、Claude Code）：工作流指令直接嵌入规则文件中。不支持脚本执行和参考文件读取；`references/` 中的核心内容已内联到这些版本中。
 
 ## review_tutorial.py
 
