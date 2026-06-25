@@ -24,32 +24,71 @@ When activated, the agent follows a structured 7-step workflow:
 
 ## Installation
 
-### Antigravity / Codex (full skill with scripts)
+Run the command corresponding to your platform inside your project's root directory:
 
-Copy the entire directory to your project:
+### For Single-File Rule IDEs (Cursor, Windsurf, Copilot, Claude Code)
+These platforms only require a single rule file. We provide direct download commands using standard `curl` (macOS/Linux/Git Bash) and native PowerShell (Windows).
 
-```bash
-cp -r learn-any-topic/ .agents/skills/learn-any-topic/   # Antigravity
-cp -r learn-any-topic/ .codex/skills/learn-any-topic/     # Codex
-```
+- **Cursor (.mdc)**
+  - *macOS / Linux / Git Bash:*
+    ```bash
+    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/cursor/learn-any-topic.mdc -o .cursor/rules/learn-any-topic.mdc
+    ```
+  - *Windows (PowerShell):*
+    ```powershell
+    New-Item -ItemType Directory -Force -Path .cursor/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/cursor/learn-any-topic.mdc" -OutFile ".cursor/rules/learn-any-topic.mdc"
+    ```
 
-### Cursor / Windsurf / Copilot / Claude Code (rules only)
+- **Windsurf (.md)**
+  - *macOS / Linux / Git Bash:*
+    ```bash
+    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/windsurf/learn-any-topic.md -o .windsurf/rules/learn-any-topic.md
+    ```
+  - *Windows (PowerShell):*
+    ```powershell
+    New-Item -ItemType Directory -Force -Path .windsurf/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/windsurf/learn-any-topic.md" -OutFile ".windsurf/rules/learn-any-topic.md"
+    ```
 
-Copy the platform-specific file from `platforms/`:
+- **GitHub Copilot (.instructions.md)**
+  - *macOS / Linux / Git Bash:*
+    ```bash
+    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/copilot/learn-any-topic.instructions.md -o .github/instructions/learn-any-topic.instructions.md
+    ```
+  - *Windows (PowerShell):*
+    ```powershell
+    New-Item -ItemType Directory -Force -Path .github/instructions; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/copilot/learn-any-topic.instructions.md" -OutFile ".github/instructions/learn-any-topic.instructions.md"
+    ```
 
-```bash
-# Cursor
-cp platforms/cursor/learn-any-topic.mdc .cursor/rules/
+- **Claude Code (.md)**
+  - *macOS / Linux / Git Bash:*
+    ```bash
+    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/claude/learn-any-topic.md -o .claude/rules/learn-any-topic.md
+    ```
+  - *Windows (PowerShell):*
+    ```powershell
+    New-Item -ItemType Directory -Force -Path .claude/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/claude/learn-any-topic.md" -OutFile ".claude/rules/learn-any-topic.md"
+    ```
 
-# Windsurf
-cp platforms/windsurf/learn-any-topic.md .windsurf/rules/
+### For Full-Skill Platforms (Antigravity, OpenAI Codex)
+These platforms require the full folder structure. You can use either Git or npx degit:
 
-# GitHub Copilot
-cp platforms/copilot/learn-any-topic.instructions.md .github/instructions/
+- **Method A: Git Clone (Universal, Recommended)**
+  Clones the repository and automatically cleans up the nested git history:
+  - *macOS / Linux / Git Bash:*
+    ```bash
+    git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git .agents/skills/learn-any-topic && rm -rf .agents/skills/learn-any-topic/.git
+    ```
+  - *Windows (PowerShell):*
+    ```powershell
+    git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git .agents/skills/learn-any-topic; Remove-Item -Recurse -Force .agents/skills/learn-any-topic/.git
+    ```
 
-# Claude Code
-cp platforms/claude/learn-any-topic.md .claude/rules/
-```
+- **Method B: npx degit (For Node.js developers)**
+  ```bash
+  npx degit SimulAffect/learn-any-topic-skill .agents/skills/learn-any-topic
+  ```
+
+*(Note: For OpenAI Codex, replace `.agents/skills/learn-any-topic` with `.codex/skills/learn-any-topic`)*
 
 ## Directory Structure
 
@@ -127,32 +166,71 @@ This skill is released as open source. See LICENSE for details.
 
 ## 安装方式
 
-### Antigravity / Codex（完整 skill，含脚本）
+请在您项目的根目录下打开终端，并运行与您的平台相对应的命令：
 
-将整个目录复制到项目中：
+### 针对单文件规则平台（Cursor, Windsurf, Copilot, Claude Code）
+这些平台仅需要一个规则文件。我们提供了使用标准 `curl`（Mac/Linux/Git Bash）和原生 PowerShell（Windows）的直连下载命令：
 
-```bash
-cp -r learn-any-topic/ .agents/skills/learn-any-topic/   # Antigravity
-cp -r learn-any-topic/ .codex/skills/learn-any-topic/     # Codex
-```
+- **Cursor (.mdc)**
+  - *macOS / Linux / Git Bash:*
+    ```bash
+    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/cursor/learn-any-topic.mdc -o .cursor/rules/learn-any-topic.mdc
+    ```
+  - *Windows (PowerShell):*
+    ```powershell
+    New-Item -ItemType Directory -Force -Path .cursor/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/cursor/learn-any-topic.mdc" -OutFile ".cursor/rules/learn-any-topic.mdc"
+    ```
 
-### Cursor / Windsurf / Copilot / Claude Code（仅规则文件）
+- **Windsurf (.md)**
+  - *macOS / Linux / Git Bash:*
+    ```bash
+    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/windsurf/learn-any-topic.md -o .windsurf/rules/learn-any-topic.md
+    ```
+  - *Windows (PowerShell):*
+    ```powershell
+    New-Item -ItemType Directory -Force -Path .windsurf/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/windsurf/learn-any-topic.md" -OutFile ".windsurf/rules/learn-any-topic.md"
+    ```
 
-从 `platforms/` 目录复制对应平台的文件：
+- **GitHub Copilot (.instructions.md)**
+  - *macOS / Linux / Git Bash:*
+    ```bash
+    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/copilot/learn-any-topic.instructions.md -o .github/instructions/learn-any-topic.instructions.md
+    ```
+  - *Windows (PowerShell):*
+    ```powershell
+    New-Item -ItemType Directory -Force -Path .github/instructions; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/copilot/learn-any-topic.instructions.md" -OutFile ".github/instructions/learn-any-topic.instructions.md"
+    ```
 
-```bash
-# Cursor
-cp platforms/cursor/learn-any-topic.mdc .cursor/rules/
+- **Claude Code (.md)**
+  - *macOS / Linux / Git Bash:*
+    ```bash
+    curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/claude/learn-any-topic.md -o .claude/rules/learn-any-topic.md
+    ```
+  - *Windows (PowerShell):*
+    ```powershell
+    New-Item -ItemType Directory -Force -Path .claude/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/claude/learn-any-topic.md" -OutFile ".claude/rules/learn-any-topic.md"
+    ```
 
-# Windsurf
-cp platforms/windsurf/learn-any-topic.md .windsurf/rules/
+### 针对完整 Skill 平台（Antigravity, OpenAI Codex）
+这些平台需要完整的文件夹结构。您可以使用 Git 浅克隆或 npx degit：
 
-# GitHub Copilot
-cp platforms/copilot/learn-any-topic.instructions.md .github/instructions/
+- **方式一：Git 克隆（最通用，推荐）**
+  克隆仓库并自动删除嵌套的 git 历史记录：
+  - *macOS / Linux / Git Bash:*
+    ```bash
+    git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git .agents/skills/learn-any-topic && rm -rf .agents/skills/learn-any-topic/.git
+    ```
+  - *Windows (PowerShell):*
+    ```powershell
+    git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git .agents/skills/learn-any-topic; Remove-Item -Recurse -Force .agents/skills/learn-any-topic/.git
+    ```
 
-# Claude Code
-cp platforms/claude/learn-any-topic.md .claude/rules/
-```
+- **方式二：npx degit（适用于 Node.js 开发者）**
+  ```bash
+  npx degit SimulAffect/learn-any-topic-skill .agents/skills/learn-any-topic
+  ```
+
+*(注：如果您使用的是 OpenAI Codex，请将目标路径修改为 `.codex/skills/learn-any-topic`)*
 
 ## 目录结构
 

@@ -15,10 +15,29 @@ This directory contains ready-to-use configuration files for different AI coding
 
 ## Installation
 
-1. Choose the file matching your AI coding tool.
-2. Copy it to the corresponding install location in your project root.
-3. For **Antigravity** and **Codex**, copy the entire `learn-any-topic/` directory (including `scripts/` and `references/`).
-4. For other platforms, copy only the platform-specific file — scripts and references are not supported by those platforms.
+Instead of manual copying, you can install the configuration directly in your project root using the following commands:
+
+### For Single-File Rule IDEs
+Download the rule file directly using `curl` (macOS/Linux) or PowerShell (Windows):
+
+- **Cursor**:
+  - *macOS/Linux:* `curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/cursor/learn-any-topic.mdc -o .cursor/rules/learn-any-topic.mdc`
+  - *PowerShell:* `New-Item -ItemType Directory -Force -Path .cursor/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/cursor/learn-any-topic.mdc" -OutFile ".cursor/rules/learn-any-topic.mdc"`
+- **Windsurf**:
+  - *macOS/Linux:* `curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/windsurf/learn-any-topic.md -o .windsurf/rules/learn-any-topic.md`
+  - *PowerShell:* `New-Item -ItemType Directory -Force -Path .windsurf/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/windsurf/learn-any-topic.md" -OutFile ".windsurf/rules/learn-any-topic.md"`
+- **GitHub Copilot**:
+  - *macOS/Linux:* `curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/copilot/learn-any-topic.instructions.md -o .github/instructions/learn-any-topic.instructions.md`
+  - *PowerShell:* `New-Item -ItemType Directory -Force -Path .github/instructions; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/copilot/learn-any-topic.instructions.md" -OutFile ".github/instructions/learn-any-topic.instructions.md"`
+- **Claude Code**:
+  - *macOS/Linux:* `curl -fsSL --create-dirs https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/claude/learn-any-topic.md -o .claude/rules/learn-any-topic.md`
+  - *PowerShell:* `New-Item -ItemType Directory -Force -Path .claude/rules; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SimulAffect/learn-any-topic-skill/master/platforms/claude/learn-any-topic.md" -OutFile ".claude/rules/learn-any-topic.md"`
+
+### For Full-Skill Platforms (Antigravity / Codex)
+Download the entire directory using `git clone` or `npx degit`:
+- *Git Clone (macOS/Linux):* `git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git .agents/skills/learn-any-topic && rm -rf .agents/skills/learn-any-topic/.git`
+- *Git Clone (PowerShell):* `git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git .agents/skills/learn-any-topic; Remove-Item -Recurse -Force .agents/skills/learn-any-topic/.git`
+- *npx degit:* `npx degit SimulAffect/learn-any-topic-skill .agents/skills/learn-any-topic`
 
 ## Notes
 
