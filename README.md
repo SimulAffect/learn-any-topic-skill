@@ -22,17 +22,6 @@ When activated, the agent follows a structured 7-step workflow:
 6. **Generate the Artifact** — Output as Markdown, Word, PDF, or other requested format
 7. **Review, Find Gaps, Revise** — Run quality checks on coverage, sources, terminology, coherence
 
-## Supported Platforms
-
-| Platform | Format | Install Path |
-|---|---|---|
-| **Antigravity** (Gemini) | SKILL.md + scripts + references | `.agents/skills/learn-any-topic/` |
-| **OpenAI Codex** | SKILL.md + scripts + references | `.codex/skills/learn-any-topic/` |
-| **Cursor** | `.mdc` rule file | `.cursor/rules/` |
-| **Windsurf** (Codeium) | `.md` rule file | `.windsurf/rules/` |
-| **GitHub Copilot** | `.instructions.md` file | `.github/instructions/` |
-| **Claude Code** (Anthropic) | `.md` rule file | `.claude/rules/` |
-
 ## Installation
 
 ### Antigravity / Codex (full skill with scripts)
@@ -135,17 +124,6 @@ This skill is released as open source. See LICENSE for details.
 5. **撰写教程** — 产出清晰、连贯的讲解（而非零散的要点列表）
 6. **生成交付物** — 输出为 Markdown、Word、PDF 或其他指定格式
 7. **审查、查漏、修订** — 对覆盖度、来源质量、术语、连贯性进行质量检查
-
-## 支持平台
-
-| 平台 | 格式 | 安装路径 |
-|---|---|---|
-| **Antigravity**（Gemini） | SKILL.md + 脚本 + 参考文档 | `.agents/skills/learn-any-topic/` |
-| **OpenAI Codex** | SKILL.md + 脚本 + 参考文档 | `.codex/skills/learn-any-topic/` |
-| **Cursor** | `.mdc` 规则文件 | `.cursor/rules/` |
-| **Windsurf**（Codeium） | `.md` 规则文件 | `.windsurf/rules/` |
-| **GitHub Copilot** | `.instructions.md` 文件 | `.github/instructions/` |
-| **Claude Code**（Anthropic） | `.md` 规则文件 | `.claude/rules/` |
 
 ## 安装方式
 
