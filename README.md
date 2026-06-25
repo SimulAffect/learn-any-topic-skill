@@ -1,6 +1,6 @@
 # Learn Any Topic Skill
 
-An advanced AI coding agent skill designed to help you learn and master any common topic for which sufficient resources can be found on the internet. 
+An advanced AI agent skill designed to help you learn and master any common topic for which sufficient resources can be found on the internet. 
 
 Unlike typical one-off AI explanations that often lack depth or structure, this skill uses a highly structured, loop-based approach to prepare comprehensive, publication-grade learning materials for you. It guides the AI agent through a rigorous 7-step cycle—from framing the learning objectives and mapping authoritative sources to designing knowledge structures, drafting continuous explanations, generating formatted artifacts, and running automated programmatic quality checks.
 
@@ -114,7 +114,7 @@ This skill is released as open source. See LICENSE for details.
 
 # Learn Any Topic Skill（中文说明）
 
-这是一个先进的 AI 编程助手 Skill，旨在帮助你系统地学习和掌握任何一个在网络中能获得足够资料的常见主题。
+这是一个先进的 AI Agent Skill，旨在帮助你系统地学习和掌握任何一个在网络中能获得足够资料的常见主题。
 
 与常见的、往往缺乏深度或结构的一次性 AI 回答不同，本 Skill 采用了一种**结构化的闭环（Loop）方式**来为你准备高质量、系统化的学习资料。它引导 AI 助手遵循严格的 7 步循环工作流——从明确学习目标与受众、梳理权威来源地图，到设计知识地图与大纲、撰写连贯的教学内容、生成规范的交付文档，并最终通过自动化脚本进行针对性的质量审查与迭代优化，确保交付结果具有极高的完整性与实用价值。
 
