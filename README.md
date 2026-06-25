@@ -47,6 +47,12 @@ If you have Node.js installed, the easiest way is to use the `skills` CLI. It wi
 npx skills add SimulAffect/learn-any-topic-skill
 ```
 
+To update a skill installed with the `skills` CLI, run:
+
+```bash
+npx skills update learn-any-topic
+```
+
 ### 2. Manual Installation (`git clone`)
 
 If you prefer to install it manually, you can clone this repository. You will need to know the specific folder where your AI tool expects Skill folders to be placed (replace `<your-skills-dir>` with that path):
@@ -159,6 +165,12 @@ This skill is released as open source. See LICENSE for details.
 
 ```bash
 npx skills add SimulAffect/learn-any-topic-skill
+```
+
+如果你是用 `skills` 命令行工具安装的，后续可以运行：
+
+```bash
+npx skills update learn-any-topic
 ```
 
 ### 2. 手动安装（Git Clone）
