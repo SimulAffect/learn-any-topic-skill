@@ -50,7 +50,7 @@ npx skills add SimulAffect/learn-any-topic-skill
 To update later, run:
 
 ```bash
-npx skills update learn-any-topic
+npx skills add SimulAffect/learn-any-topic-skill --skill learn-any-topic -y
 ```
 
 ### 2. Manual Installation (`git clone`)
@@ -164,7 +164,7 @@ npx skills add SimulAffect/learn-any-topic-skill
 后续更新请运行：
 
 ```bash
-npx skills update learn-any-topic
+npx skills add SimulAffect/learn-any-topic-skill --skill learn-any-topic -y
 ```
 
 ### 2. 手动安装（Git Clone）
