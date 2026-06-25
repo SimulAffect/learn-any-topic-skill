@@ -52,13 +52,16 @@ npx skills add SimulAffect/learn-any-topic-skill
 If you prefer to install it manually, you can clone this repository. You will need to know the specific folder where your AI tool expects Skill folders to be placed (replace `<your-skills-dir>` with that path):
 
 ```bash
-git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git <your-skills-dir>/learn-any-topic
+git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git
+cp -R learn-any-topic-skill/skills/learn-any-topic <your-skills-dir>/
 ```
 
 To update the skill later, run:
 
 ```bash
-cd <your-skills-dir>/learn-any-topic && git pull
+cd learn-any-topic-skill
+git pull
+cp -R skills/learn-any-topic <your-skills-dir>/
 ```
 
 ### 3. Codex Installation
@@ -66,7 +69,7 @@ cd <your-skills-dir>/learn-any-topic && git pull
 If you are using OpenAI Codex, it has its own built-in installer. Run this command inside Codex:
 
 ```text
-$skill-installer install https://github.com/SimulAffect/learn-any-topic-skill
+$skill-installer install https://github.com/SimulAffect/learn-any-topic-skill/tree/master/skills/learn-any-topic
 ```
 
 After installing, please restart Codex so it can recognize the new skill.
@@ -74,14 +77,17 @@ After installing, please restart Codex so it can recognize the new skill.
 ## Directory Structure
 
 ```
-learn-any-topic/
-├── SKILL.md                    # Core skill file
+learn-any-topic-skill/
 ├── README.md                   # This file
-├── scripts/
-│   └── review_tutorial.py      # Automated tutorial quality checker
-└── references/
-    ├── source-quality.md       # Source evaluation guidelines
-    └── tutorial-framework.md   # Chapter skeleton and depth controls
+├── LICENSE
+└── skills/
+    └── learn-any-topic/
+        ├── SKILL.md                    # Core skill file
+        ├── scripts/
+        │   └── review_tutorial.py      # Automated tutorial quality checker
+        └── references/
+            ├── source-quality.md       # Source evaluation guidelines
+            └── tutorial-framework.md   # Chapter skeleton and depth controls
 ```
 
 ## review_tutorial.py
@@ -97,7 +103,7 @@ A lightweight Python 3 script (standard library only) that checks tutorial draft
 Supports both English and Chinese text.
 
 ```bash
-python3 scripts/review_tutorial.py path/to/your-tutorial.md
+python3 <your-skills-dir>/learn-any-topic/scripts/review_tutorial.py path/to/your-tutorial.md
 ```
 
 ## License
@@ -160,13 +166,16 @@ npx skills add SimulAffect/learn-any-topic-skill
 如果你想手动安装，可以直接克隆这个仓库。你需要知道你的 AI 工具通常把 Skill 文件夹放在哪个目录（请将下方代码中的 `<your-skills-dir>` 替换为实际的路径）：
 
 ```bash
-git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git <your-skills-dir>/learn-any-topic
+git clone --depth 1 https://github.com/SimulAffect/learn-any-topic-skill.git
+cp -R learn-any-topic-skill/skills/learn-any-topic <your-skills-dir>/
 ```
 
 如果后续需要更新，可以运行：
 
 ```bash
-cd <your-skills-dir>/learn-any-topic && git pull
+cd learn-any-topic-skill
+git pull
+cp -R skills/learn-any-topic <your-skills-dir>/
 ```
 
 ### 3. Codex 平台
@@ -174,7 +183,7 @@ cd <your-skills-dir>/learn-any-topic && git pull
 如果你使用的是 OpenAI Codex，它内置了自己的安装命令。请在 Codex 中运行：
 
 ```text
-$skill-installer install https://github.com/SimulAffect/learn-any-topic-skill
+$skill-installer install https://github.com/SimulAffect/learn-any-topic-skill/tree/master/skills/learn-any-topic
 ```
 
 安装完成后，请重启 Codex 以使新 skill 生效。
@@ -182,14 +191,17 @@ $skill-installer install https://github.com/SimulAffect/learn-any-topic-skill
 ## 目录结构
 
 ```
-learn-any-topic/
-├── SKILL.md                    # 核心 skill 文件
+learn-any-topic-skill/
 ├── README.md                   # 本文件
-├── scripts/
-│   └── review_tutorial.py      # 自动化教程质量检查脚本
-└── references/
-    ├── source-quality.md       # 来源评估指南
-    └── tutorial-framework.md   # 章节骨架与深度控制
+├── LICENSE
+└── skills/
+    └── learn-any-topic/
+        ├── SKILL.md                    # 核心 skill 文件
+        ├── scripts/
+        │   └── review_tutorial.py      # 自动化教程质量检查脚本
+        └── references/
+            ├── source-quality.md       # 来源评估指南
+            └── tutorial-framework.md   # 章节骨架与深度控制
 ```
 
 ## review_tutorial.py
@@ -205,7 +217,7 @@ learn-any-topic/
 支持英文和中文文本检测。
 
 ```bash
-python3 scripts/review_tutorial.py path/to/your-tutorial.md
+python3 <your-skills-dir>/learn-any-topic/scripts/review_tutorial.py path/to/your-tutorial.md
 ```
 
 ## 许可证
