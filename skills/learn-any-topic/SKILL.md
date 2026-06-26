@@ -58,6 +58,7 @@ Before drafting, make a private or visible structure that covers:
 - common mistakes, edge cases, and misconceptions
 - practice tasks or self-check questions
 - final checklist for judging whether the learner has understood the topic
+- visual explanations that would reduce confusion, such as a learning roadmap, concept map, process diagram, comparison table, or structured checklist
 
 For a reusable chapter skeleton, read `references/tutorial-framework.md`.
 
@@ -76,9 +77,13 @@ Writing rules:
 
 ### 6. Generate the Artifact
 
-If the user requests Word, PDF, slides, spreadsheet, or another file type, use the relevant skill or tool for that format.
+For substantial tutorials, learning roadmaps, course outlines, or self-study guides, create both an editable Markdown source file and a PDF reading copy by default. Treat the Markdown file as the source draft and the PDF as the final reading artifact.
+
+If the user explicitly requests inline text only, Markdown only, Word, slides, spreadsheet, or another file type, follow the requested format and use the relevant skill or tool for that format. If PDF generation is unavailable in the current environment, deliver the Markdown source and state the PDF limitation clearly.
 
 For document outputs, include enough structure for navigation: title, short orientation, sections, glossary, practice or review section, and source list. If visual rendering is possible, verify the document visually. If rendering is unavailable, do structural checks and state the limitation.
+
+Carry the planned visual explanations into the final artifact. When image, diagram, PDF, or rendering tools are available, include rendered visuals in the document. When those tools are unavailable, preserve the visuals as editable Mermaid diagrams, tables, SVG source, or clearly labeled figure instructions.
 
 ### 7. Review, Find Gaps, Revise
 
